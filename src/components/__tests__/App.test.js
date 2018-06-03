@@ -3,9 +3,20 @@ import { shallow } from 'enzyme';
 
 import App from '../App';
 import CommentBox from '../CommentBox';
+import CommentList from '../CommentList';
+
+let wrapper;
+
+// Runs this function before each test
+beforeEach(() => {
+  wrapper = shallow(<App />);
+});
 
 it('shows a comment box', () => {
-  const wrapper = shallow(<App />);
-
   expect(wrapper.find(CommentBox).length).toEqual(1);
+});
+
+
+it('shows a comment list', () => {
+  expect(wrapper.find(CommentList).length).toEqual(1);
 });
